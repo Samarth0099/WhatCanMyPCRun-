@@ -1,0 +1,6 @@
+{
+  "name": "What Can My PC Run? - Game Performance & FPS Estimator",
+  "description": "Benchmark-driven PC game performance checker. Select your hardware to see expected FPS ranges, bottleneck analysis, and optimized in-game settings for AAA and popular games.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

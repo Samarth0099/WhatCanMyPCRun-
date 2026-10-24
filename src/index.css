@@ -1,0 +1,473 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Default Theme: Mocha Mousse (Pantone's Color of the Year 2025) */
+    --theme-primary: #A47764;
+    --theme-secondary: #C59B82;
+    --theme-accent: #F8EDE3;
+    --theme-bg: #140F0D;
+    --theme-card-bg: #1E1613;
+    --theme-card-surface: #271E1A;
+    --theme-border: rgba(164, 119, 100, 0.32);
+    --theme-border-subtle: rgba(248, 237, 227, 0.08);
+    --theme-glow: 0 0 30px rgba(164, 119, 100, 0.24);
+    --titanium-metal-shine: linear-gradient(135deg, rgba(248, 237, 227, 0.09) 0%, rgba(248, 237, 227, 0.02) 40%, rgba(164, 119, 100, 0.06) 100%);
+  }
+
+  /* 1. Mocha Mousse (Pantone's Color of the Year) */
+  [data-theme="mocha_mousse"] {
+    --theme-primary: #A47764;
+    --theme-secondary: #C59B82;
+    --theme-accent: #F8EDE3;
+    --theme-bg: #140F0D;
+    --theme-card-bg: #1E1613;
+    --theme-card-surface: #271E1A;
+    --theme-border: rgba(164, 119, 100, 0.32);
+    --theme-border-subtle: rgba(248, 237, 227, 0.08);
+    --theme-glow: 0 0 30px rgba(164, 119, 100, 0.24);
+    --titanium-metal-shine: linear-gradient(135deg, rgba(248, 237, 227, 0.09) 0%, rgba(248, 237, 227, 0.02) 40%, rgba(164, 119, 100, 0.06) 100%);
+  }
+
+  /* 2. Teal and Cream */
+  [data-theme="teal_cream"] {
+    --theme-primary: #14B8A6;
+    --theme-secondary: #0D9488;
+    --theme-accent: #FDFBF7;
+    --theme-bg: #061316;
+    --theme-card-bg: #0C1E23;
+    --theme-card-surface: #122930;
+    --theme-border: rgba(20, 184, 166, 0.30);
+    --theme-border-subtle: rgba(253, 251, 247, 0.08);
+    --theme-glow: 0 0 30px rgba(20, 184, 166, 0.22);
+    --titanium-metal-shine: linear-gradient(135deg, rgba(253, 251, 247, 0.09) 0%, rgba(253, 251, 247, 0.02) 40%, rgba(20, 184, 166, 0.06) 100%);
+  }
+
+  /* 3. Deep Purple with Orange Accents */
+  [data-theme="deep_purple_orange"] {
+    --theme-primary: #A855F7;
+    --theme-secondary: #7E22CE;
+    --theme-accent: #F97316;
+    --theme-bg: #0B0616;
+    --theme-card-bg: #130B24;
+    --theme-card-surface: #1C1133;
+    --theme-border: rgba(249, 115, 22, 0.35);
+    --theme-border-subtle: rgba(249, 115, 22, 0.08);
+    --theme-glow: 0 0 30px rgba(249, 115, 22, 0.24);
+    --titanium-metal-shine: linear-gradient(135deg, rgba(249, 115, 22, 0.09) 0%, rgba(168, 85, 247, 0.03) 40%, rgba(249, 115, 22, 0.06) 100%);
+  }
+
+  [data-theme="cyberpunk"] {
+    --theme-primary: #00D2FF;
+    --theme-secondary: #8B5CF6;
+    --theme-accent: #06B6D4;
+    --theme-bg: #07090e;
+    --theme-card-bg: #0f131d;
+    --theme-card-surface: #141a28;
+    --theme-border: rgba(0, 210, 255, 0.22);
+    --theme-border-subtle: rgba(255, 255, 255, 0.08);
+    --theme-glow: 0 0 30px rgba(0, 210, 255, 0.16);
+    --titanium-metal-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(0, 210, 255, 0.04) 100%);
+  }
+
+  [data-theme="matrix"] {
+    --theme-primary: #00FF7F;
+    --theme-secondary: #10B981;
+    --theme-accent: #34D399;
+    --theme-bg: #060907;
+    --theme-card-bg: #0c120e;
+    --theme-card-surface: #111a14;
+    --theme-border: rgba(0, 255, 127, 0.22);
+    --theme-border-subtle: rgba(255, 255, 255, 0.08);
+    --theme-glow: 0 0 30px rgba(0, 255, 127, 0.16);
+    --titanium-metal-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(0, 255, 127, 0.04) 100%);
+  }
+
+  [data-theme="synthwave"] {
+    --theme-primary: #F43F5E;
+    --theme-secondary: #A855F7;
+    --theme-accent: #FBBF24;
+    --theme-bg: #0a0712;
+    --theme-card-bg: #120e1f;
+    --theme-card-surface: #19142a;
+    --theme-border: rgba(244, 63, 94, 0.22);
+    --theme-border-subtle: rgba(255, 255, 255, 0.08);
+    --theme-glow: 0 0 30px rgba(244, 63, 94, 0.16);
+    --titanium-metal-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(244, 63, 94, 0.04) 100%);
+  }
+
+  [data-theme="deep_space"] {
+    --theme-primary: #A855F7;
+    --theme-secondary: #6366F1;
+    --theme-accent: #38BDF8;
+    --theme-bg: #070611;
+    --theme-card-bg: #0f0d20;
+    --theme-card-surface: #16132c;
+    --theme-border: rgba(168, 85, 247, 0.22);
+    --theme-border-subtle: rgba(255, 255, 255, 0.08);
+    --theme-glow: 0 0 30px rgba(168, 85, 247, 0.16);
+    --titanium-metal-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(168, 85, 247, 0.04) 100%);
+  }
+
+  [data-theme="forest_calm"] {
+    --theme-primary: #D4A373;
+    --theme-secondary: #2D6A4F;
+    --theme-accent: #FEFAE0;
+    --theme-bg: #070c09;
+    --theme-card-bg: #0f1612;
+    --theme-card-surface: #151e19;
+    --theme-border: rgba(212, 163, 115, 0.22);
+    --theme-border-subtle: rgba(255, 255, 255, 0.08);
+    --theme-glow: 0 0 30px rgba(45, 106, 79, 0.16);
+    --titanium-metal-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(212, 163, 115, 0.04) 100%);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    background-color: var(--theme-bg);
+    color: #f1f5f9;
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-display {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Layered Cyberpunk Titanium Technical Environment */
+.cyber-titanium-grid {
+  background-image: 
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(0, 210, 255, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 50% at 85% 25%, rgba(139, 92, 246, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 15% 55%, rgba(6, 182, 212, 0.04) 0%, transparent 60%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* 3D Titanium Hardware Card - Realistic Depth & Specular Sheen */
+.titanium-card {
+  background: linear-gradient(180deg, var(--theme-card-surface) 0%, var(--theme-card-bg) 100%);
+  border: 1px solid var(--theme-border-subtle);
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 
+    0 12px 32px -8px rgba(0, 0, 0, 0.7),
+    0 1px 0 0 rgba(255, 255, 255, 0.1) inset,
+    0 -1px 0 0 rgba(0, 0, 0, 0.5) inset;
+  transition: 
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s ease;
+  will-change: transform;
+}
+
+.titanium-card:hover {
+  transform: translateY(-3px) scale(1.003);
+  border-color: var(--theme-border);
+  box-shadow: 
+    0 20px 45px -10px rgba(0, 0, 0, 0.8),
+    0 0 24px -6px var(--theme-border),
+    0 1px 0 0 rgba(255, 255, 255, 0.16) inset;
+}
+
+.titanium-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  pointer-events: none;
+}
+
+/* Selected Hardware Module State */
+.titanium-card-active {
+  background: linear-gradient(180deg, rgba(20, 30, 48, 0.95) 0%, rgba(13, 18, 28, 0.95) 100%);
+  border-color: var(--theme-primary) !important;
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 0, 0, 0.85),
+    0 0 25px -4px var(--theme-border),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Tactile 3D Titanium Button with Neon Edge */
+.btn-titanium-primary {
+  position: relative;
+  background: linear-gradient(180deg, var(--theme-primary) 0%, var(--theme-secondary) 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 6px 20px -3px var(--theme-glow),
+    0 1px 0 0 rgba(255, 255, 255, 0.5) inset,
+    0 -2px 0 0 rgba(0, 0, 0, 0.25) inset;
+  transition: 
+    transform 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.16s ease,
+    filter 0.16s ease;
+  will-change: transform;
+}
+
+.btn-titanium-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 
+    0 10px 28px -4px var(--theme-glow),
+    0 1px 0 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+.btn-titanium-primary:active {
+  transform: translateY(1px);
+  box-shadow: 
+    0 3px 10px -2px var(--theme-glow),
+    0 1px 0 0 rgba(255, 255, 255, 0.2) inset;
+}
+
+/* Secondary Titanium Button */
+.btn-titanium-secondary {
+  position: relative;
+  background: linear-gradient(180deg, rgba(30, 38, 54, 0.85) 0%, rgba(18, 24, 34, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  box-shadow: 
+    0 6px 18px -4px rgba(0, 0, 0, 0.6),
+    0 1px 0 0 rgba(255, 255, 255, 0.1) inset;
+  transition: 
+    transform 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease;
+  will-change: transform;
+}
+
+.btn-titanium-secondary:hover {
+  transform: translateY(-1.5px);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  box-shadow: 
+    0 10px 24px -5px rgba(0, 0, 0, 0.75),
+    0 1px 0 0 rgba(255, 255, 255, 0.16) inset;
+}
+
+.btn-titanium-secondary:active {
+  transform: translateY(0.5px);
+}
+
+/* Glass Titanium Floating Panel */
+.titanium-glass-panel {
+  background: rgba(14, 18, 28, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 16px 40px -10px rgba(0, 0, 0, 0.65),
+    0 1px 0 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+/* Technical HUD Crosshair Details */
+.hud-corner {
+  position: relative;
+}
+.hud-corner::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid var(--theme-primary);
+  border-right: 1.5px solid var(--theme-primary);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Status Indicator Diodes */
+.diode-pulse {
+  position: relative;
+}
+.diode-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  background: inherit;
+  opacity: 0.4;
+  animation: diodePing 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes diodePing {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Subtle Animated Ambient Noise for realistic titanium depth */
+.titanium-specular-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.15) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 100%);
+}
+
+/* TV / 10-foot mode */
+body.tv-mode {
+  font-size: 1.15rem;
+}
+
+body.tv-mode :focus-visible {
+  outline: 3px solid var(--theme-primary) !important;
+  outline-offset: 3px !important;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .titanium-card,
+  .btn-titanium-primary,
+  .btn-titanium-secondary {
+    transition: none !important;
+    transform: none !important;
+  }
+  .diode-pulse::before {
+    animation: none !important;
+  }
+  .skeleton-shimmer {
+    animation: none !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+}
+
+/* Subtle Premium Skeleton Loading Shimmer */
+@keyframes shimmerWave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerWave 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Clean Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(7, 9, 14, 0.7);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 210, 255, 0.4);
+}
+
+/* =========================================================================
+   INTERSECTIONOBSERVER SCROLL ANIMATIONS (Fade-In & Slide-Up)
+   - Premium GPU-accelerated reveal animations (opacity and translate3d)
+   - Smooth cubic-bezier easing for cohesive gaming feel
+   - Full accessibility support for prefers-reduced-motion
+========================================================================= */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 0.52s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.52s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Variant: Pure Fade */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+.reveal-fade.is-revealed {
+  opacity: 1;
+}
+
+/* Variant: Card Reveal with subtle depth lift */
+.reveal-card {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0) scale(0.985);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-card.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Variant: Image Reveal with crisp focus */
+.reveal-image {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0) scale(0.96);
+  transition: opacity 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.58s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-image.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Stagger presets */
+.stagger-1 { transition-delay: 40ms; }
+.stagger-2 { transition-delay: 80ms; }
+.stagger-3 { transition-delay: 120ms; }
+.stagger-4 { transition-delay: 160ms; }
+.stagger-5 { transition-delay: 200ms; }
+.stagger-6 { transition-delay: 240ms; }
+.stagger-7 { transition-delay: 280ms; }
+.stagger-8 { transition-delay: 320ms; }
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll,
+  .reveal-fade,
+  .reveal-card,
+  .reveal-image,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
